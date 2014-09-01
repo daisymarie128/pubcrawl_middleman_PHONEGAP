@@ -39,7 +39,7 @@ app.CreatePub = Backbone.View.extend({
         console.log('were here!')
         console.log($('#password').val(), $('#confirm_password').val())
       $.ajax({
-        url: '/pubs',
+        url: 'http://fierce-river-3029.herokuapp.com/pubs',
         data: formData,
         cache: false,
         contentType: false,

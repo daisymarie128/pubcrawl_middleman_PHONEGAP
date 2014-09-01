@@ -35,7 +35,7 @@ app.PubChallengesCreateView = Backbone.View.extend({
         formData.append('pub_challenge[badge]', $('.badge')[0].files[0]);
         formData.append('pub_challenge[point-value]', $('#point-value').val());
         $.ajax({
-          url: '/pub_challenges',
+          url: 'http://fierce-river-3029.herokuapp.com/pub_challenges',
           data: formData,
           cache: false,
           contentType: false,

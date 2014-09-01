@@ -40,7 +40,7 @@ app.UserView = Backbone.View.extend({
         console.log('were here!')
         console.log($('#password').val(), $('#password_confirmation').val())
       $.ajax({
-        url: '/users',
+        url: 'http://fierce-river-3029.herokuapp.com/users',
         data: formData,
         cache: false,
         contentType: false,
