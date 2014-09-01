@@ -21,7 +21,7 @@ app.LoginView = Backbone.View.extend({
     $('#content').html(this.el);
   },
 
-  login: function () {
+  login: function (event) {
     // stops the form from submitting params with the button.
     event.preventDefault();
     // saves to the rails database
@@ -31,6 +31,10 @@ app.LoginView = Backbone.View.extend({
       data: {
         username: $('#username').val(),
         password: $('#password').val()
+      },
+      crossDomain: true,
+      xhrFields: {
+        withCredentials: true
       },
       success: function(response) {
         console.log('login got', response);
