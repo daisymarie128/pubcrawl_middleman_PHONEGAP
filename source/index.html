@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pubcrawl</title>
+  <link href="./css/forms.css?body=1" media="all" rel="stylesheet" />
+<link href="./css/main.css?body=1" media="all" rel="stylesheet" />
+<link href="./css/user-view.css?body=1" media="all" rel="stylesheet" />
+<link href="./css/application.css?body=1" media="all" rel="stylesheet" />
+  <script src="./js/all.js?body=1"></script>
+
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="/duD+Azl+/Z1wvVuG2Ra9Lo2U5Vu3OyeurP6YJVVzUU=" name="csrf-token" />
+</head>
+<body>
+  <div id="container">
+    <div id="main">
+    <header>
+      <div class="title">
+        <span>pubcrawl</span>
+      </div><!--///////////////// close title /////-->
+
+      <div id="login-functions">
+        <div id="user-bar">
+      </div><!--/////////////close login-bar///-->
+      </div><!--///////close login-functions/////-->
+      <div id="site-navigation-bar">
+      </div><!--/////////////close site-navigation-bar///-->
+
+    </header>
+    <div id="content"></div>
+
+    <!--/////////////////////////////////////////////login bar template ////////////-->
+
+<script type='text/template' id='login-bar-template'>
+  <ul>
+    <a href="#login"><li>Login</li></a>
+    <a href="#users/create"><li>Sign up as User</li></a>
+    <a href="#pubs/create"><li>Sign up as Pub</li></a>
+  </ul>
+</script>
+
+<!--/////////////////////////////////////////////logged in bar template ////////////-->
+
+<script type='text/template' id='logged-in-bar-template'>
+  <ul>
+    {{#if name}}
+    <h1> Name: {{name}}</h1>
+    {{^}}
+    <h1> Username: {{username}}</h1>
+    {{/if}}
+    <a href="#"><li>Home</li></a>
+    <a href="#users/edit"><li>Settings</li></a>
+    <a href="#logout"><li class="logout">Logout</li></a>
+  </ul>
+
+</script>
+
+<!--/////////////////////////////////////////////user nav bar template ////////////-->
+
+<script type='text/template' id='user-nav-bar-template'>
+  <div id="does-this-work">
+  <ul>
+    <a href="#users/list"><li>View Top Scorers</li></a>
+    <a href="#pubs/list"><li>View Pubs</li></a>
+    <a href="#pubs/find_pub"><li>Find a Pub</li></a>
+  </ul>
+  </div><!--/////////close does this work ///-->
+</script>
+
+<!--/////////////////////////////////////////////login bar template ////////////-->
+
+<script type='text/template' id='pub-nav-bar-template'>
+  <nav>
+    <ul>
+      <a href="#users/list"><li>View Your Top Users</li></a>
+      <a href="#pubs/list"><li>View Pubs</li></a>
+      <a href="#pub_challenges/create"><li>Create Pub Challenge</li></a>
+      <a href="#pub_challenges/list"><li>View Pub Challenges</li></a>
+    </ul>
+  </nav>
+</script>
+
+<!--/////////////////////////////////////////////user template ////////////-->
+
+<script type='text/template' id='user-template'>
+  <h2>Create User</h2>
+  <form id='create-user-form' action='#'>
+
+    {{#if username}}
+    <label for='username'>Username: {{username}}</label>
+    {{^}}
+    <label for='username'>Username: </label>
+    <input type='text' id='username'>
+    {{/if}}
+
+    {{#if avatar}}
+    <img src="{{avatar.url}}">
+    {{/if}}
+    <label for='image'>Image: </label>
+    <input type='file' class='image'>
+    <input type='hidden' id='image_cache'>
+
+
+    <label for='first_name'>First Name: </label>
+    <input type='text' id='first_name' autofocus='true' value="{{ first_name }}">
+
+    <label for='last_name'>Last Name: </label>
+    <input type='text' id='last_name' value="{{ last_name }}">
+
+    <label for='email'>Email: </label>
+    <input type='email' id='email' value="{{ email }}">
+
+    <label for='location'>Location: </label>
+    <input type='text' id='location' value="{{ location }}">
+
+    <label for='password'>Password: </label>
+    <input type='password' id='password'>
+
+    <label for='password_confirmation'>Confirm password: </label>
+    <input type='password' id='password_confirmation'>
+
+    <button>Create</button>
+  </form>
+</script>
+
+<!--/////////////////////////////////////////////user list template ////////////-->
+
+<script type='text/template' id='users-list-template'>
+  <h2>List of Users</h2>
+    <ul>
+      {{#each users}}
+      <div class="user">
+        <li class="user-username">{{username}}</li>
+        <li class="user-avatar">{{avatar.url}}</li>
+        <li class="user-first-name">{{first_name}}</li>
+        <li class="user-last-name">{{last_name}}</li>
+        <li class="user-location">{{location}}</li>
+        <li class="user-score">{{score}}</li>
+        </div><!--///////// close user /////// -->
+      {{/each}}
+    </ul>
+</script>
+
+<!--/////////////////////////////////////////////user acheivemnts template ////////////-->
+
+
+<script type='text/template' id='user-achievements-list-template'>
+  <h2>List of Your acheivments</h2>
+    <ul>
+      {{#each achievements}}
+        <li>{{name}}</li>
+      {{/each}}
+    </ul>
+</script>
+
+<!--/////////////////////////////////////////////create pub template ////////////-->
+
+<script type='text/template' id='create-pub-template'>
+  <div class="sidebox">
+
+  </div><!--///// close sidebox /////-->
+  <h2>Create Pub</h2>
+  <form id='create-pub-form' action='#' enctype="multipart/form-data">
+
+    <label for='name'>Pub Name: </label>
+    <input type='text' id='name' autofocus='true'>
+
+    <label for='address'>Address: </label>
+    <input type='text' id='address'>
+    <br>
+    <label for='image'>Image: </label>
+    <br>
+    <input type='file' class='image'>
+    <input type='hidden' id='image_cache'>
+
+    <label for='email'>Email: </label>
+    <input type='email' id='email'>
+
+    <label for='description'>Description: </label>
+    <textarea type='textarea' rows="5" id='description'></textarea>
+
+    <label for='password'>Password: </label>
+    <input type='password' id='password'>
+
+    <label for='confirm_password'>Confirm password: </label>
+    <input type='password' id='confirm_password'>
+
+    <button>Create Pub</button>
+  </form>
+</script>
+
+<!--/////////////////////////////////////////////user list template ////////////-->
+
+<script type='text/template' id='pubs-list-template'>
+  <h2>List of Pubs</h2>
+    <ul>
+      {{#each pubs}}
+      <div class="pub">
+        <div class="pub-name"><li>{{name}}</li></div>
+        <div class="pub-image"><li><img src="{{image.thumb.url}}"></li></div>
+        <div class="pub-address"><li>{{address}}</li></div>
+        <div class="pub-description"><li>{{description}}</li></div>
+
+        <a href="#pub_challenges/:id" class="view-button"><li>View Challenges</li></a>
+        </div><!--///// close pub /// -->
+      {{/each}}
+    </ul>
+</script>
+
+<!--/////////////////////////////////////////////login template ////////////-->
+
+<script type='text/template' id='login-template'>
+
+<div id="loginpage">
+<div id="logintext">
+  <h2>PUBCRAWLL</h2>
+  <p>
+  Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Goo</p>
+</div><!--//////////// close login text ////// -->
+
+<div id="loginline">
+</div><!--//////////// close loginline ////// -->
+
+
+<div id="login">
+
+  <h3>SIGN IN</h3>
+    <form id='login' action='#'>
+      <label for='username'>Username: </label><br>
+      <input type='text' id='username'>
+      <label for='password'>Password: </label><br>
+      <input type='password' id='password'>
+
+      <button>Login In</button>
+    </form>
+
+</div><!-- /////// close login //////-->
+
+</div><!-- /////// close loginpage //////-->
+</script>
+
+<!--/////////////////////////////////////////////pub challenge template ////////////-->
+
+<script type='text/template' id='pub-challenge-template'>
+  <h2>Create Pub Challenge</h2>
+  <form id='create-pub-challenge-form' action='#'>
+
+    <label for='name'>Name Your Challenge: </label>
+    <br>
+    <input type='text' id='name' autofocus='true'>
+    <br>
+    <label for='image'>Image: </label>
+    <br>
+    <input type='file' class='image'>
+    <input type='hidden' id='image_cache'>
+    <br>
+    <label for='description'>Description: </label>
+    <br>
+    <input type='text' id='description'>
+    <br>
+    <label for='bagde'>Badge: </label>
+    <br>
+    <input type='file' class='badge'>
+    <input type='hidden' id='image_cache'>
+    <br>
+    <label for='point_value'>Point Value: </label>
+    <br>
+    <select name="Point Value" id="point-value">
+      <option value="5">Five</option>
+      <option value="10">Ten</option>
+      <option value="20">Twenty</option>
+      <option value="30">Thirty</option>
+    </select>
+    <br>
+
+    <button id="create-challenge">Create Pub Challenge</button>
+  </form>
+</script>
+
+<!--/////////////////////////////////////////////new task pub challenge template ////////////-->
+
+<script type='text/template' id='new-task-template'>
+  <label for='task'>Task: </label>
+    <br>
+    <input type='text' name='task' class="task">
+    <br>
+
+    <button id="create-task">Create Task</button>
+  </form>
+</script>
+
+<!--/////////////////////////////////////////////pub challenge list template ////////////-->
+
+<script type='text/template' id='pub-challenge-list-template'>
+  <h2>List of Pub Challenges</h2>
+    <ul>
+      {{#each pubChallenges}}
+      <div class ="challenge-holder">
+        <li class="challenge-name">{{name}}</li>
+        <li class="challenge-image"><img src="{{image.url}}"></li>
+        <li class="challenge-description">{{description}}</li>
+        <li class="challenge-badge"><img src="{{badge.url}}"></li>
+        <li class="challenge-tasks">CHALLENGE!
+          <ol>
+            {{#each this.tasks}}
+              <a href="#qrcode"><liclass="challenge-task-items">{{this}}</li></a>
+            {{/each}}
+          </ol>
+        </li>
+        </div><!--/////////close challenge holder ///////-->
+      {{/each}}
+    </ul>
+</script>
+
+<script type='text/template' id='find-pub-template'>
+  <h2>Find Pub</h2>
+    <div id="map_canvas">
+    </div><!--///////////////////// close map ///////////////////////////////////////////////-->
+</script>
+
+    <!-- <button id="add-task">Add Task</button> -->
+    <!-- <br> -->
+    <!-- <label for='taskname'>Task: </label> -->
+    <!-- <br> -->
+    <!-- <input type='text' class='taskname'> -->
+    <!-- <br> -->
+
+
+    </div>
+  </div><!--//////////////close main////////-->
+</div><!--//////////////close container////////-->
+</body>
+</html>

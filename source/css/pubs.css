@@ -1,0 +1,59 @@
+.pub{
+  margin-top: 3em;
+}
+
+.pubs-list-view{
+  width: 100%;
+  font-size: 1em;
+}
+
+.pubs-list-view li{
+  list-style: none;
+}
+
+.pub-name{
+  width: 30%;
+  font-family: Avenir Next;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pub-image{
+  display: inline;
+}
+
+.pub-address{
+  position: relative;
+  width: 40%;
+  font-size: 1.5em;
+}
+
+.pub-description{
+  position: relative;
+  width: 30%;
+  font-size: 1em;
+}
+
+.view-button li{
+  padding: 0.5em;
+  list-style: none;
+  background-color: #000;
+  color: #FFF;
+  margin-top: 1.4em;
+  width: 8%;
+}
+
+.view-button li:hover{
+  background-color: #E8C53A;
+  color: #000;
+}
+
+.view-button a{
+  text-decoration: none;
+  color: #000;
+}
+
+.view-button a:hover{
+  color: #FFF;
+}

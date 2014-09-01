@@ -1,0 +1,62 @@
+/*//////////////////////////////user nav/////////*/
+
+#site-navigation-bar{
+  margin-top: 1em;
+  /*padding-top: 0.2em;*/
+  width: 100%;
+  font-family: Avenir Next;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+}
+
+#site-navigation-bar ul{
+  width: auto;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  /*text-align: center;*/
+}
+
+#site-navigation-bar li{
+  display: inline-block;
+  padding: 0.5em;
+  list-style: none;
+  background-color: #000;
+  color: #FFF;
+}
+
+#site-navigation-bar li:hover{
+  background-color: #E8C53A;
+  color: #000;
+}
+
+#site-navigation-bar a{
+  text-decoration: none;
+  color: #000;
+}
+
+#site-navigation-bar a:hover{
+  color: #FFF;
+}
+
+div#does-this-work{
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  /*padding-left: 30%;*/
+}
+
+div#does-this-work ul{
+  display: block;
+  margin: 0 auto;
+  width: auto;
+}
+
+div#does-this-work ul a{
+  display: inline-block;
+  /*margin: 0 0.8vw;*/
+  width: auto;
+}
