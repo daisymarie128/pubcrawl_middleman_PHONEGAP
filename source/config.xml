@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.pubcrawl.appname" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.pubcrawl.appname" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Pubcrawl</name>
+    <description></description>
+    <author email="hello@pubcrawl.com" href="daisy@pubcrawl.com">
+        Pubcrawl
+    </author>
     <preference name="DisallowOverscroll" value="true" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="FadeSplashScreen" value="true" />
@@ -38,14 +43,10 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
     <icon src="icon.png" />
-    <name>Pubcrawl</name>
-    <description></description>
-    <author email="hello@thinkmill.com.au" href="http://thinkmill.com.au">
-        Pubcrawl
-    </author>
+
     <content src="index.html" />
     <access origin="*" />
 </widget>

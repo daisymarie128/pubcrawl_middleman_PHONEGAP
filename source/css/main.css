@@ -1,7 +1,7 @@
 
 
-@font-face { font-family: Avenir Next; src: url('Avenir Next.ttc'); }
-@font-face { font-family: Langdon; src: url('Langdon.otf'); }
+@font-face { font-family: Avenir Next; src: url('../fonts/Avenir Next.ttc'); }
+@font-face { font-family: Langdon; src: url('../fonts/Langdon.otf'); }
 
 
 h2{

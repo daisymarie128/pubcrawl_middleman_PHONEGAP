@@ -25,5 +25,20 @@ app.SiteNavView = Backbone.View.extend({
       var userNavBar = Handlebars.compile(app.templates.userNavBar);
       $('#site-navigation-bar').html( userNavBar() );
     }
+
+    $('#readqr').on('click', function(){
+      console.log('reading qr')
+      cordova.plugins.barcodeScanner.scan(
+        function (result) {
+          $('#content').html("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+        },
+        function (error) {
+          $('#content').html("Scanning failed: " + error);
+        }
+       );
+    });
   }
 });

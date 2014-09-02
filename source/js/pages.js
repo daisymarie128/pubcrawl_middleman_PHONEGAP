@@ -49,6 +49,7 @@ $(document).ready(function () {
       });
   });
 
+
   //Redirects to homepage when click on title.
   $('.title span').click(function(){
     window.location.replace("#");

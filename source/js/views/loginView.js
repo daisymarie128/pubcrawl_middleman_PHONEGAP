@@ -60,6 +60,10 @@ app.LoginView = Backbone.View.extend({
         // var pubNavBar = Handlebars.compile(app.templates.pubNavBar);
         // $('#site-navigation-bar').html( pubNavBar() );
         app.router.navigate("users/list", true);
+
+      },
+      complete: function(response, string){
+        console.log( "request done" )
       }
     })
     // if (sign in is right){
