@@ -57,16 +57,17 @@ header{
   height: inherit;
   padding: 0;
   list-style: none;
+  text-align: center;
 }
 
 #login-functions li{
-  padding: 1em;
+  padding: 0.5em;
   list-style: none;
   display: inline;
   background-color: #000;
 }
 #login-functions li:hover{
-  padding: 1em;
+  padding: 0.5em;
   background-color: #FFF;
 }
 #login-functions a{
@@ -81,6 +82,7 @@ header{
 #content{
   font-family: Avenir Next;
   font-size: 0.7em;
+  padding: 5%;
   padding-top: 2%;
 }
 

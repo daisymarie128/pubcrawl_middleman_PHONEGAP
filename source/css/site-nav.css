@@ -1,6 +1,7 @@
 /*//////////////////////////////user nav/////////*/
 
 #site-navigation-bar{
+  font-size: 0.8em;
   margin-top: 1em;
   /*padding-top: 0.2em;*/
   width: 100%;
@@ -17,7 +18,7 @@
   padding: 0;
   list-style: none;
   display: block;
-  /*text-align: center;*/
+  text-align: center;
 }
 
 #site-navigation-bar li{
@@ -26,6 +27,7 @@
   list-style: none;
   background-color: #000;
   color: #FFF;
+  margin-bottom: 2%;
 }
 
 #site-navigation-bar li:hover{

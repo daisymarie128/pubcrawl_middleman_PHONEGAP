@@ -45,26 +45,29 @@ app.UserView = Backbone.View.extend({
         cache: false,
         contentType: false,
         processData: false,
-        type: 'POST'
-      }).done( function (){
-        console.log('did this hsit work')
-      }).fail( function (){
-        console.log('i assumed this would fail')
-      });
+        type: 'POST',
+        success: function(response){
+          app.currentUser = response;
+          if (response.type == 'pub') {
+          console.log('this is a pub')
+          app.currentUser = response.user;
+          app.currentUser.type = 'pub'
+          var pubNavBar = Handlebars.compile(app.templates.pubNavBar);
+          $('#site-navigation-bar').html( pubNavBar() );
+        } else if (response.type == 'user') {
+          console.log('this is a user')
+          app.currentUser = response.user;
+          app.currentUser.type = 'user'
+          var userNavBar = Handlebars.compile(app.templates.userNavBar);
+          $('#site-navigation-bar').html( userNavBar() );
+        }
+        var loggedInBar = Handlebars.compile(app.templates.loggedInBar);
+        $('#login-functions').html( loggedInBar( app.currentUser ) );
+          console.log(response)
+          console.log(app.currentUser)
+        }
+      })
 
-
-    // var newUser = new app.User({
-    //   first_name: $('#first_name').val(),
-    //   last_name: $('#last_name').val(),
-    //   username: $('#username').val(),
-    //   email: $('#email').val(),
-    //   password: $('#password').val(),
-    //   password_confirmation: $('#password_confirmation').val(),
-    //   avatar: $('#avatar').val(),
-    //   location: $('#location').val()});
-    // newUser.save();
-    // adds to the backbone memory (browser)
-    // app.users.add(newUser);
     // Send view to a users list
     app.router.navigate("users/list", true);
   }

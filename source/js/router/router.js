@@ -43,8 +43,11 @@ app.Router = Backbone.Router.extend({
   },
 
   viewUsers: function () {
-    var usersListView = new app.UsersListView();
-    usersListView.render();
+    app.users = new app.Users();
+    app.users.fetch().done(function(){
+      var usersListView = new app.UsersListView();
+      usersListView.render();
+    })
   },
 
   createPub: function () {
