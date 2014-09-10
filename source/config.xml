@@ -27,7 +27,6 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
-    <preference name="splashscreen" value="splashpage.png" />
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
@@ -46,7 +45,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="2.0.0" />
-    <gap:plugin name="org.apache.cordova.splashscreen" version="0.1.0" />
+    <gap:splash src="splash.png" gap:platform="ios" width="320" height="480" />
     <icon src="icon.png" />
 
     <content src="index.html" />
