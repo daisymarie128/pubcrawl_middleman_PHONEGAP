@@ -25,7 +25,7 @@ app.LoginView = Backbone.View.extend({
     // stops the form from submitting params with the button.
     event.preventDefault();
     // saves to the rails database
-    $.ajax('http://fierce-river-3029.herokuapp.com/session', {
+    $.ajax('http://pubcrawlll.herokuapp.com/session', {
       type: 'post',
       dataType: 'json',
       data: {

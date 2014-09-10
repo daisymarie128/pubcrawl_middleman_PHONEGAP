@@ -40,5 +40,15 @@ app.SiteNavView = Backbone.View.extend({
         }
        );
     });
+
+    $('#makeqr').on('click', function(){
+      var str = prompt( "Enter text:" )
+      cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, str, function(success) {
+            alert("encode success: " + success);
+          }, function(fail) {
+            alert("encoding failed: " + fail);
+          }
+      );
+    });
   }
 });

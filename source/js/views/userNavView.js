@@ -18,7 +18,7 @@ app.UserNavView = Backbone.View.extend({
     console.log('logot starting');
     event.preventDefault();
     // i want this shit to just log the fuck out. why you no work!
-    $.ajax('http://fierce-river-3029.herokuapp.com/session', {
+    $.ajax('http://pubcrawlll.herokuapp.com/session', {
       type: 'post',
       dataType: 'json',
       data: {

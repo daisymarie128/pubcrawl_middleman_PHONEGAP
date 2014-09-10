@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 
   $.when(userRequest, challengeRequest, pubRequest, taskRequest).done(function () {
-    $.ajax('http://fierce-river-3029.herokuapp.com/current_user', {
+    $.ajax('http://pubcrawlll.herokuapp.com/current_user', {
       type: 'get',
       dataType: 'json',
       success: function(response){

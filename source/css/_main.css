@@ -1,8 +1,14 @@
 
 
-@font-face { font-family: Avenir Next; src: url('/assets/AvenirNext.ttc'); }
-@font-face { font-family: Langdon; src: url('/assets/Langdon.otf'); }
+@font-face { font-family: Langdon; src: url('../fonts/Langdon.otf'); }
 
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
 
 h2{
   font-family: Avenir Next;
@@ -11,9 +17,7 @@ h2{
 }
 
 #container{
-  max-width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  max-width: 100%;
   position: relative;
   background-color: #fff;
 }
@@ -31,17 +35,16 @@ header{
 .title{
   width: 100%;
   display: block;
-  margin: 0 auto;
+  margin: .2em auto;
   text-align: center;
   font-size: 4em;
   font-family: Langdon;
-  background-color: #FFF;
 }
 
 #login-functions {
   /*position: absolute;*/
   right: 0;
-  padding: 2em;
+  padding: .2em 2em 2em 2em;
   background-color: #E8C53A;
   font-family: Avenir Next;
   font-size: 0.7em;
